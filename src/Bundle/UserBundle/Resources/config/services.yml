@@ -1,0 +1,8 @@
+services:
+  nerdery_xbox.user_builder:
+    class: Nerdery\Xbox\Bundle\UserBundle\Builder\UserBuilder
+  nerdery_xbox.cookie_authenticator:
+    class: Nerdery\Xbox\Bundle\UserBundle\Security\Token\Authenticator\CookieAuthenticator
+  nerdery_xbox.user_provider:
+    class: Nerdery\Xbox\Bundle\UserBundle\Security\Provider\UserProvider
+    arguments: [@nerdery_xbox.user_builder]
