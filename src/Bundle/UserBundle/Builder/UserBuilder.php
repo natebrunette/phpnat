@@ -12,7 +12,7 @@ use Nerdery\Xbox\Bundle\UserBundle\Entity\User;
  *
  * Creates a user object
  *
- * @author Nate Brunette <nate@b7interactive.com>
+ * @author Nate Brunette <n@tebru.net>
  * @package Nerdery\Xbox\Bundle\UserBundle\Builder
  */
 class UserBuilder
@@ -34,6 +34,12 @@ class UserBuilder
      */
     private $performed = false;
 
+    /**
+     * True if a user can perform actions
+     *
+     * @var bool
+     */
+    private $canPerform = true;
 
     /**
      * Set the user id
@@ -56,6 +62,16 @@ class UserBuilder
     }
 
     /**
+     * Set if a user can perform actions
+     *
+     * @param bool $performable
+     */
+    public function setCanPerform($performable)
+    {
+        $this->canPerform = (bool)$performable;
+    }
+
+    /**
      * Build the user object
      *
      * If id is not set, create a unique one
@@ -68,7 +84,7 @@ class UserBuilder
             $this->id = uniqid();
         }
 
-        $user = new User($this->id, $this->performed);
+        $user = new User($this->id, $this->performed, $this->canPerform);
 
         return $user;
     }

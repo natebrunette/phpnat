@@ -1,0 +1,7 @@
+services:
+  nerdery_xbox.soap_client:
+    class: SoapClient
+    arguments: ["%nerdery_xbox.wsdl%"]
+  nerdery_xbox.xbox_adapter:
+    class: Nerdery\Xbox\Bundle\ApiBundle\Adapter\XboxAdapter
+    arguments: [@nerdery_xbox.soap_client, "%nerdery_xbox.api_key%", @nerdery_xbox.string_sanitizer, @jms_serializer]

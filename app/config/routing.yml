@@ -1,1 +1,4 @@
-
+NerderyXboxWebBundle:
+  resource: "@NerderyXboxWebBundle/Controller"
+  type: annotation
+  prefix:   /

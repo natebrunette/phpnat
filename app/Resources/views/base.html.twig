@@ -2,12 +2,29 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Xbox Challenge{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets
+                'bower/bootstrap/dist/css/bootstrap.min.css'
+                'bundles/nerderyxboxweb/css/bootstrap-extra.css'
+                filter='cssrewrite'
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {% javascripts
+                'bower/jquery/dist/jquery.min.js'
+                'bower/bootstrap/dist/js/bootstrap.min.js'
+                '@NerderyXboxWebBundle/Resources/public/js/confirmDelete.js'
+                '@NerderyXboxWebBundle/Resources/public/js/disableVoting.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </body>
 </html>

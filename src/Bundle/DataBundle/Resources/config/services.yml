@@ -1,0 +1,5 @@
+services:
+  nerdery_xbox.string_sanitizer:
+    class: Nerdery\Xbox\Bundle\DataBundle\String\Sanitizer
+  nerdery_xbox.date_params:
+    class: Nerdery\Xbox\Bundle\DataBundle\Date\DateParams

@@ -5,3 +5,6 @@ parameters:
     debug_toolbar:          true
     debug_redirects:        false
     use_assetic_controller: true
+
+    nerdery_xbox.wsdl: http://xbox.sierrabravo.net/v2/xbox.wsdl
+    nerdery_xbox.api_key: ~

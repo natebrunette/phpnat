@@ -14,7 +14,14 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new JMS\AopBundle\JMSAopBundle(),
+            new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new Nerdery\Xbox\Bundle\UserBundle\NerderyXboxUserBundle(),
+            new Nerdery\Xbox\Bundle\WebBundle\NerderyXboxWebBundle(),
+            new Nerdery\Xbox\Bundle\ApiBundle\NerderyXboxApiBundle(),
+            new Nerdery\Xbox\Bundle\DataBundle\NerderyXboxDataBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

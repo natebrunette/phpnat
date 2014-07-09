@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * Class User
  *
- * @author Nate Brunette <nate@b7interactive.com>
+ * @author Nate Brunette <n@tebru.net>
  * @package Nerdery\Xbox\Bundle\UserBundle\Entity
  */
 class User implements UserInterface
@@ -29,20 +29,29 @@ class User implements UserInterface
     /**
      * True if the user has already performed an action for the day
      *
-     * @var bool
+     * @var bool $performed
      */
     private $performed;
+
+    /**
+     * True if the user can perform actions
+     *
+     * @var bool $canPerform
+     */
+    private $canPerform;
 
     /**
      * Constructor
      *
      * @param int $id
      * @param bool $performed
+     * @param bool $canPerform
      */
-    public function __construct($id, $performed)
+    public function __construct($id, $performed, $canPerform)
     {
         $this->id = $id;
         $this->performed = (bool)$performed;
+        $this->canPerform = (bool)$canPerform;
     }
 
     /**
@@ -69,10 +78,38 @@ class User implements UserInterface
      * Set if the user has performed today
      *
      * @param bool $performed
+     *
+     * @return $this
      */
     public function setHasPerformed($performed)
     {
         $this->performed = (bool)$performed;
+
+        return $this;
+    }
+
+    /**
+     * Return if the user can perform action
+     *
+     * @return bool
+     */
+    public function getCanPerform()
+    {
+        return $this->canPerform;
+    }
+
+    /**
+     * Set if a user can perform actions
+     *
+     * @param bool $performable
+     *
+     * @return $this
+     */
+    public function setCanPerform($performable)
+    {
+        $this->canPerform = $performable;
+
+        return $this;
     }
 
     /**

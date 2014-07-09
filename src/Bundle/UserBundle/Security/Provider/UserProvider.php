@@ -16,7 +16,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
  *
  * Provides a Nerdery user object to the authenticator
  *
- * @author Nate Brunette <nate@b7interactive.com>
+ * @author Nate Brunette <n@tebru.net>
  * @package Nerdery\Xbox\Bundle\UserBundle\Security\Provider
  */
 class UserProvider implements UserProviderInterface
