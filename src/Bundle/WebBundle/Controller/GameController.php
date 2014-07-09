@@ -111,6 +111,7 @@ class GameController extends Controller
             return $this->goHome('Request was made without title');
         }
 
+        $title = $this->sanitizer->removeHtml($title);
         $title = $this->sanitizer->cleanup($title);
         if (empty($title)) {
             return $this->goHome('The title must not be empty');

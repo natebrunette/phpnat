@@ -158,7 +158,6 @@ class XboxAdapter
      */
     public function addGame($title)
     {
-        $title = $this->sanitizer->removeHtml($title);
         $title = $this->sanitizer->sanitizeForDatabase($title);
         $params = $this->getParams(array('title' => $title));
         $response = $this->makeRequest(self::METHOD_ADD_GAME, $params);
